@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="overflow-hidden">
     <div>
         <!-- bg image -->
         <img src="/assets/background.png" alt="" class="w-full h-screen object-cover">
@@ -35,13 +35,13 @@
                 </div>
                 <div class="flex row gap-2 border border-white rounded-[7px] px-2 py-1">
                     <img src="/assets/↵.svg" alt="">
-                    <a href="register.php">CREATE ACCOUNT</a>
+                    <a href="login.php">SIGN IN</a>
                 </div>
             </div>
         </nav>
 
         <!-- KNOWLEDGE -->
-        <div class="p-6 absolute flex flex-row transform translate-y-[-370px]">
+        <div class="p-6 absolute flex flex-row transform translate-y-[-400px] h-screen">
            <div class="flex flex-col">
                 <div class="text-[120px] font-bold leading-none tracking-tight" style="font-family: Antonio;">
                     <h1 class="text-white">PRIDE. PASSION.</h1>
@@ -53,26 +53,35 @@
                 </div>
            </div>
            <!-- LOGIN FORM -->
-            <div class="flex flex-col bg-[#373737] bg-opacity-70 border border-white rounded-[20px] w-[35rem] h-[300px] transform translate-x-[180px] translate-y-[13px]">
-                <div class="p-4 flex flex-row w-full text-center items-center">
-                    <h1 class="text-white text-[33px] font-bold" style="font-family: Geist;">SIGN IN</h1>
-                    <div class="ml-auto items-center text-center">
-                        <h1 class="text-white text-[13px]" style="font-family: Geist;">LETS SIGN IN TO YOUR ACCOUNT</h1>
-                        <h1 class="text-white text-[13px] text-end" style="font-family: Geist;">AND GET STARTED</h1>
-                    </div>
+            <div class="flex flex-col bg-[#373737] bg-opacity-70 border border-white rounded-[20px] w-[35rem] h-[500px] transform translate-x-[180px] translate-y-[-150px]">
+                <div class="p-4 flex flex-row w-full text-center items-center justify-center">
+                    <h1 class="text-white text-[33px] font-bold" style="font-family: Geist;">CREATE ACCOUNT</h1>
                 </div>
                 <!-- INPUT FIELD -->
-                <div class="p-3 flex flex-col transform">
+                <div class="p-3 flex flex-col transform gap-4">
                     <div class="flex flex-col">
-                        <label for="UM EMAIL ADDRESS:" class="text-white">UM EMAIL ADDRESS:</label>
-                        <input type="text" placeholder="example@umindanao.edu.ph" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <label for="FIRST NAME:" class="text-white">FIRST NAME:</label>
+                        <input type="text" placeholder="Enter your first name" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
                     </div>
                     <div class="flex flex-col">
+                        <label for="LAST NAME:" class="text-white">LAST NAME:</label>
+                        <input type="text" placeholder="Enter your last name" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="EMAIL ADDRESS:" class="text-white">EMAIL ADDRESS:</label>
+                        <input type="email" placeholder="Enter your email address" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                    </div>
+                    <div class="flex flex-col items-start justify-start">
                         <label for="PASSWORD:" class="text-white">PASSWORD:</label>
                         <input type="password" placeholder="Enter your password" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <div class="flex flex-row items-center justify-center gap-2">
+                            <input type="checkbox" class="mt-1">
+                            <label for="terms" class="text-white">I agree to the</label>
+                            <label for="Terms and Conditions" class="underline text-[#F7BF24]">Terms and Conditions</label>
+                        </div>
                     </div>
-                    <button class="mt-5 bg-[#F7BF24] w-full h-10 rounded-[7px] text-[19px] font-bold" style="font-family: Geist;">
-                        SIGN IN
+                    <button class="bg-[#F7BF24] w-full h-10 rounded-[7px] text-[19px] font-bold" style="font-family: Geist;">
+                        CREATE ACCOUNT
                     </button>
                 </div>
             </div>
