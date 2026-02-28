@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +55,15 @@
            </div>
            <!-- LOGIN FORM -->
             <div class="flex flex-col bg-[#373737] bg-opacity-70 border border-white rounded-[20px] w-[35rem] h-[300px] transform translate-x-[180px] translate-y-[13px]">
-                <div class="p-4 flex flex-row w-full text-center items-center">
+                <?php if (isset($_SESSION['login_success'])): ?>
+                    <script>
+                        alert("<?php echo $_SESSION['login_success']; ?>");
+                        window.location.href = "home-page.php";
+                    </script>
+                    <?php unset($_SESSION['login_success']); ?>
+                <?php endif; ?>
+                <form action="login-process.php" method="POST">
+                    <div class="p-4 flex flex-row w-full text-center items-center">
                     <h1 class="text-white text-[33px] font-bold" style="font-family: Geist;">SIGN IN</h1>
                     <div class="ml-auto items-center text-center">
                         <h1 class="text-white text-[13px]" style="font-family: Geist;">LETS SIGN IN TO YOUR ACCOUNT</h1>
@@ -65,16 +74,17 @@
                 <div class="p-3 flex flex-col transform">
                     <div class="flex flex-col">
                         <label for="UM EMAIL ADDRESS:" class="text-white">UM EMAIL ADDRESS:</label>
-                        <input type="text" placeholder="example@umindanao.edu.ph" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <input type="text" id="email" name="email" placeholder="example@umindanao.edu.ph" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
                     </div>
                     <div class="flex flex-col">
                         <label for="PASSWORD:" class="text-white">PASSWORD:</label>
-                        <input type="password" placeholder="Enter your password" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
                     </div>
                     <button class="mt-5 bg-[#F7BF24] w-full h-10 rounded-[7px] text-[19px] font-bold" style="font-family: Geist;">
                         SIGN IN
                     </button>
                 </div>
+                </form>
             </div>
         </div>
     </div>

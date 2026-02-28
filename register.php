@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,26 +55,34 @@
            </div>
            <!-- LOGIN FORM -->
             <div class="flex flex-col bg-[#373737] bg-opacity-70 border border-white rounded-[20px] w-[35rem] h-[500px] transform translate-x-[180px] translate-y-[-150px]">
-                <div class="p-4 flex flex-row w-full text-center items-center justify-center">
+                <form action="registration-process.php" method="POST">
+                    <div class="p-4 flex flex-row w-full text-center items-center justify-center">
                     <h1 class="text-white text-[33px] font-bold" style="font-family: Geist;">CREATE ACCOUNT</h1>
                 </div>
                 <!-- INPUT FIELD -->
                 <div class="p-3 flex flex-col transform gap-4">
+                    <?php if (isset($_SESSION['register_success'])): ?>
+                        <script>
+                            alert("<?php echo $_SESSION['register_success']; ?>");
+                            window.location.href = "login.php";
+                        </script>
+                        <?php unset($_SESSION['register_success']); ?>
+                    <?php endif; ?>
                     <div class="flex flex-col">
                         <label for="FIRST NAME:" class="text-white">FIRST NAME:</label>
-                        <input type="text" placeholder="Enter your first name" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white" required>
                     </div>
                     <div class="flex flex-col">
                         <label for="LAST NAME:" class="text-white">LAST NAME:</label>
-                        <input type="text" placeholder="Enter your last name" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white" required>
                     </div>
                     <div class="flex flex-col">
                         <label for="EMAIL ADDRESS:" class="text-white">EMAIL ADDRESS:</label>
-                        <input type="email" placeholder="Enter your email address" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white" required>
                     </div>
                     <div class="flex flex-col items-start justify-start">
                         <label for="PASSWORD:" class="text-white">PASSWORD:</label>
-                        <input type="password" placeholder="Enter your password" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" class="w-full h-10 p-3 rounded-[7px] bg-[#A9A9A9] bg-opacity-70 text-white" required>
                         <div class="flex flex-row items-center justify-center gap-2">
                             <input type="checkbox" class="mt-1">
                             <label for="terms" class="text-white">I agree to the</label>
@@ -84,9 +93,9 @@
                         CREATE ACCOUNT
                     </button>
                 </div>
+                </form>
             </div>
         </div>
-        <!-- hello -->
     </div>
 </body>
 </html>
